@@ -1,0 +1,103 @@
+#container {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#login,
+#signup {
+    font-family: 'Open Sans', sans-serif;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 450px;
+    background-color: white;
+    border: black solid;
+    border-radius: 5px;
+    height: auto;
+    text-align: center;
+    display: none;
+}
+
+#header-login,
+#header-signup {
+    background-color: rgb(39, 110, 160);
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    border-bottom: black solid;
+}
+
+#main-login,
+#main-signup {
+    background-color: antiquewhite;
+}
+
+#main-login .txt,
+#main-signup .txt {
+    padding-top: 10px;
+    padding-bottom: 5px;
+    text-align: left;
+    display: block;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 100%;
+    padding-left: 10px;
+}
+
+#main-login .inp,
+#main-signup .inp {
+    margin: auto;
+    border: white;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding-left: 10px;
+    display: block;
+    width: 90%;
+    border-radius: 20px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+#main-login i {
+    cursor: pointer;
+    position: absolute;
+    top: 167px;
+    right: 35px;
+}
+#main-login h3,
+#main-signup h3 {
+    font-size: 80%;
+    color: black;
+}
+#main-login h3:hover,
+#main-signup h3:hover {
+    color: rgb(126, 126, 126);
+}
+
+#footer-login,
+#footer-signup {
+    width:100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+#button-login,
+#button-signup {
+    color:white;
+    cursor: pointer;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 85%;
+    background-color: rgb(39, 110, 160);
+    width: 70px; 
+    height: 40px;
+}
+
+#footer-login input:hover,
+#footer-signup input:hover {
+    background-color: rgb(56, 136, 194);
+}

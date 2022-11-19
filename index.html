@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Smart Book</title>
+    <link rel="icon" type="image/x-icon" href="/assets/images/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="assets/icons/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/account.js"></script>
+</head>
+
+<body>
+    <script>
+        window.onload = function() {
+            createAdmin();
+            initBanner();
+            createBook();
+            createBestSeller();
+            createCart();
+            renderBestseller();
+            loadPage();
+        }
+    </script>
+    <div>
+        <div id="header">
+            <div id="logo">
+               <a href="index.html"><img src="/assets/images/logo.png" alt="Smart Book Logo"></a> 
+            </div>
+
+            <ul id="topmenu">
+                <li class="parent-menu">
+                    <a href="index.html"><div>Trang Chủ</div></a>
+                </li>
+
+                <li class="parent-menu">
+                    <a href="index.html" title="Sách"><div>Sách <i class="fas fa-solid fa-caret-down"></i></div></a>
+                    <ul class="sub-topmenu">
+                        <li>
+                            <a href="/index.html?giaoduc">Giáo dục <i class="fas fa-solid fa-caret-down"></i></a>
+                            <ul class="sub-topmenu" id="sub-topmenubook1">
+                                <li><a href="/index.html?giaoduc&sachgiaokhoa">Sách giáo khoa</a></li>
+                                <li><a href="/index.html?giaoduc&sachthamkhao">Sách tham khảo</a></li>
+                                <li><a href="/index.html?giaoduc&tudien">Từ điển</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/index.html?vanhoc">Văn học <i class="fas fa-solid fa-caret-down"></i></a>
+                            <ul class="sub-topmenu" id="sub-topmenubook2">
+                                <li><a href="/index.html?vanhoc&truyenngan">Truyện ngắn</a></li>
+                                <li><a href="/index.html?vanhoc&truyendai">Truyện dài</a></li>
+                                <li><a href="/index.html?vanhoc&tho">Thơ</a></li>
+                                <li><a href="/index.html?vanhoc&khac">Khác</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/index.html?tieuthuyet">Tiểu thuyết <i class="fas fa-solid fa-caret-down"></i></a>
+                            <ul class="sub-topmenu" id="sub-topmenubook3">
+                                <li><a href="/index.html?tieuthuyet&ngontinh">Ngôn tình</a></li>
+                                <li><a href="/index.html?tieuthuyet&giatuong">Giả tưởng</a></li>
+                                <li><a href="/index.html?tieuthuyet&lichsu">Lịch sử</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/index.html?kinhte">Kinh tế <i class="fas fa-solid fa-caret-down"></i></a>
+                            <ul class="sub-topmenu" id="sub-topmenubook4">
+                                <li><a href="/index.html?kinhte&quantri">Quản trị</a></li>
+                                <li><a href="/index.html?kinhte&marketing">Marketing</a></li>
+                                <li><a href="/index.html?kinhte&nhanvat">Nhân vật</a></li>
+                                <li><a href="/index.html?kinhte&khoinghiep">Khởi nghiệp</a></li>
+                                <li><a href="/index.html?kinhte&chungkhoan">Chứng khoán</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/index.html?tamly/kynangsong">Tâm lý/Kỹ năng sống <i class="fas fa-solid fa-caret-down"></i></a>
+                            <ul class="sub-topmenu" id="sub-topmenubook5">
+                                <li><a href="/index.html?tamly/kynangsong&tamly">Tâm lý</a></li>
+                                <li><a href="/index.html?tamly/kynangsong&kynangsong">Kỹ năng sống</a></li>
+                                <li><a href="/index.html?tamly/kynangsong&hatgiongtamhon">Hạt giống tâm hồn</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/index.html?lichsu">Lịch sử <i class="fas fa-solid fa-caret-down"></i></a>
+                            <ul class="sub-topmenu" id="sub-topmenubook6">
+                                <li><a href="/index.html?lichsu&vietnam">Việt Nam</a></li>
+                                <li><a href="/index.html?lichsu&thegioi">Thế Giới</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/index.html?thieunhi">Thiếu nhi <i class="fas fa-solid fa-caret-down"></i></a>
+                            <ul class="sub-topmenu" id="sub-topmenubook7">
+                                <li><a href="/index.html?thieunhi&truyenthieunhi">Truyện thiếu nhi</a></li>
+                                <li><a href="/index.html?thieunhi&tomau">Tô màu</a></li>
+                                <li><a href="/index.html?thieunhi&luyenchu">Luyện chữ</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="parent-menu">
+                    <a href="index.html" title="Dụng Cụ"><div>Dụng Cụ <i class="fas fa-solid fa-caret-down"></i></div></a>
+                    <ul class="sub-topmenu">
+                        <li>
+                            <a href="/index.html">Dụng cụ học sinh <i class="fas fa-solid fa-caret-down"></i></a>
+                            <ul class="sub-topmenu" id="sub-topmenudevice1">
+                                <li><a href="/index.html?dungcuhocsinh&butviet">Bút viết</a></li>
+                                <li><a href="/index.html?dungcuhocsinh&tay">Tẩy</a></li>
+                                <li><a href="/index.html?dungcuhocsinh&thuocke">Thước kẻ</a></li>
+                                <li><a href="/index.html?dungcuhocsinh&maytinhcamtay">Máy tính cầm tay</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/index.html">Dụng cụ văn phòng <i class="fas fa-solid fa-caret-down"></i></a>
+                            <ul class="sub-topmenu" id="sub-topmenudevice2">
+                                <li><a href="/index.html?dungcuvanphong&sotay/ghichu">Sổ tay/Ghi chú</a></li>
+                                <li><a href="/index.html?dungcuvanphong&tui/biadung">Túi/Bìa đụng hồ sơ</a></li>
+                                <li><a href="/index.html?dungcuvanphong&cat/dan">Cắt/Dán</a></li>
+                                <li><a href="/index.html?dungcuvanphong&khac">Khác</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="/index.html">Dụng cụ vẽ <i class="fas fa-solid fa-caret-down"></i></a>
+                            <ul class="sub-topmenu" id="sub-topmenudevice3">
+                                <li><a href="/index.html?dungcuve&bangve">Bảng vẽ</a></li>
+                                <li><a href="/index.html?dungcuve&butve">Bút vẽ</a></li>
+                                <li><a href="/index.html?dungcuve&butmau">Bút màu</a></li>
+                                <li><a href="/index.html?dungcuve&maunuoc">Màu nước</a></li>
+                                <li><a href="/index.html?dungcuve&cove">Cọ vẽ</a></li>
+                                <li><a href="/index.html?dungcuve&khac">Khác</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="/index.html?dungcukhac">Khác</a></li>
+                    </ul>
+                </li>
+
+                <li class="parent-menu">
+                    <a href="" title="Khuyến Mãi"><div>Khuyến Mãi</div></a>
+                </li>
+
+                <li class="parent-menu">
+                    <a href="" title="Hỗ Trợ"><div>Hỗ Trợ</div></a>
+                </li>
+            </ul>
+
+            <div id="search">
+                <form action="">
+                    <i class="fas fa-solid fa-magnifying-glass"></i>&nbsp;
+                    <input type="text" size="20%" placeholder="Tìm kiếm">
+                </form>
+            </div>
+
+            <div id="user">
+                <p id="username">
+                    <script>
+                        var user = JSON.parse(localStorage.getItem('userActive'));
+                        if (user) {
+                            document.getElementById("username").innerText = "Hi, " + user.name;
+                        }
+                    </script>
+                </p>&nbsp;
+                <a href="admin.html" id="admin"><i class="fas fa-duotone fa-gear" title="Quản lý"></i>&nbsp;</a>
+                <a href="/index.html?shoppingcart"><i class="fas fa-solid fa-cart-shopping" title="Giỏ hàng"></i>&nbsp;</a>
+                <i class="fas fa-solid fa-bell" title="Thông báo"></i>&nbsp;
+                <i class="fas fa-solid fa-user" id="icon-login" title="Đăng nhập" onclick="showLogin()"></i>
+                <i class="fas fa-solid fa-right-from-bracket" id="icon-logout" title="Đăng xuất" onclick="logout()"></i>
+            </div>
+        </div>
+        <script>
+            var user = JSON.parse(localStorage.getItem('userActive'));
+            if (user == null) {
+                document.getElementById("icon-login").style.display = "inline";
+                document.getElementById("icon-logout").style.display = "none";
+                document.getElementById("admin").style.display = "none";
+            } else {
+                if (user.type == "Admin") {
+                    document.getElementById("admin").style.display = "inline";
+                } else {
+                    document.getElementById("admin").style.display = "none";
+                }
+                document.getElementById("icon-login").style.display = "none";
+                document.getElementById("icon-logout").style.display = "inline";
+                
+            }
+        </script>
+        <div id="banner">
+            <div id="previous-banner">
+                <i class="fas fa-regular fa-angle-left" title="Ảnh trước" onclick="prevBanner()"></i>
+            </div>
+            <div id="next-banner">
+                <i class="fas fa-regular fa-angle-right" title="Ảnh sau" onclick="nextBanner()"></i>
+            </div>
+        </div>
+        <div id="content">
+            <div class="headline" id="headline"></div>
+            <div class="filter" onclick="showFilter()">Lọc & Sắp xếp <i class="fas fa-light fa-sliders"></i></div>
+            <ul class="products" id="products">
+                <!--    innerHTML here: products * perPage
+                <li>
+                    <div class="product-item">
+                        <div class="product-top">
+                            <a href="" class="product-thumb">
+                                <img src="assets/images/product/product-tst.jpg" alt="">
+                            </a>
+                            <a href="" class="buynow">Mua Ngay</a>
+                        </div>
+
+                        <div class="product-info">
+                            <a href="" class="product-cat">Sách Kinh Tế</a>
+                            <a href="" class="product-name">Chết vì chứng khoán</a>
+                            <div class="product-price">200.000 ₫</div>
+                        </div>
+                    </div>
+                </li>
+                        innerHTML here: products * perPage  -->
+            </ul>
+            <div class="content-paging">
+                <ul class="page" id="page">
+                    <!-- <li id="btprev" class="button-prev-next"><i class="fas fa-chevron-circle-left" onclick="prevButton()"></i></li>
+                    <div class="number-page" id="number-page">
+                        <li id="active"><b>1</b></li>
+                        <li><b>2</b></li>
+                        <li><b>3</b></li>
+                    </div>
+                    <li id="btnext" class="button-prev-next-active"><i class="fas fa-chevron-circle-right" onclick="nextButton()"></i></li> -->
+                </ul>
+            </div>
+        </div>
+
+        <div id="footer">
+            <div id="aboutus">
+                <h2>Thông tin liên hệ</h2>
+                <div>
+                    <p>
+                        <i class="fas fa-solid fa-map-location-dot"></i>
+                        <b>273 An Dương Vương, Phường 3, Quận 5, Thành phố Hồ Chí Minh</b>
+                    </p>
+                    <p>
+                        <i class="fas fa-solid fa-phone-flip"></i>
+                        <b>0123456789</b>
+                    </p>
+                    <p>
+                        <i class="fas fa-solid fa-envelope"></i>
+                        <b>smartbookStore@gmail.com</b> 
+                    </p>
+                </div>
+            </div>
+
+            <div id="contact">
+                <p>
+                    <b>“</b>
+                    A house without books is like a room without windows. No man has a right to bring up his children without surrounding them with books, if he has the means to buy them. It is a wrong to his family. He cheats them! Children learn to read by being in the presence of books. The love of knowledge comes with reading and grows upon it.
+                    <b>”</b>
+                </p>
+                <div>
+                    <a href=""><i class="fas fa-brands fa-facebook"></i></a>
+                    <a href=""><i class="fas fa-brands fa-instagram"></i></a>
+                </div>
+            </div>
+
+            <p id="copyright">
+                Copyright &copy;2022 Nhà sách Smart Book
+            </p>
+        </div>
+
+        <div title="Về đầu trang" id="backtotop">
+            <i class="fas fa-arrow-circle-up" onclick="backtop()"></i>
+        </div>
+    </div>
+    <div id="container" onclick="backFromLogin()">
+
+    </div>
+    <div id="login">
+        <div id="header-login">
+            <h2>Login</h2>
+        </div>
+        <form action="/" id="main-login" onsubmit="return login();">
+            <div>
+                <label class="txt" for="username-login">Username</label>
+                <input id="username-login" class="inp" type="text" placeholder="Username">
+            </div>
+            <div>
+                <label class="txt" for="password-login">Password</label>
+                <input id="password-login" class="inp" type="password" placeholder="Password" onclick="this.select()" onfocus="this.select()">
+                <i class="fas fa-solid fa-eye-slash" id="eyes" onclick="togglePass()"></i>
+            </div>
+            <div style="margin-left: 370px; padding-right: 23px; cursor: pointer;" onclick="showSignUp()">
+                <h3>Sign Up</h3>
+            </div>
+            <div id="footer-login">
+                <input type="submit" id="button-login" value="Login">
+            </div>
+        </form>
+    </div>
+
+    <div id="signup">
+        <div id="header-signup">
+            <h2>Sign Up</h2>
+        </div>
+        <form action="/" id="main-signup" onsubmit="return signup();">
+            <div>
+                <label class="txt" for="fullname-signup">Name</label>
+                <input id="name-signup" class="inp" type="text" placeholder="Name">
+            </div>
+            <div>
+                <label class="txt" for="username-signup">Username</label>
+                <input id="username-signup" class="inp" type="text" placeholder="Username">
+            </div>
+            <div>
+                <label class="txt" for="email-signup">Email</label>
+                <input id="email-signup" class="inp" type="text" placeholder="Email">    
+            </div>
+            <div>
+                <label class="txt" for="password-signup">Password</label>
+                <input id="password-signup" class="inp" type="password" placeholder="Password" onclick="this.select()" onfocus="this.select()" onchange="this.select()">
+            </div>
+            <div>
+                <label class="txt" for="confirm-signup">Password</label>
+                <input id="confirm-signup" class="inp" type="password" placeholder="Confirm Password" onclick="this.select()" onfocus="this.select()">
+            </div>
+            <div style="margin-left: 378px; padding-right: 23px; cursor: pointer;" onclick="showLogin()">
+                <h3>Login</h3>
+            </div>
+            <div id="footer-signup">
+                <input type="submit" id="button-signup" value="Sign Up">
+            </div>
+        </form>
+    </div>
+    
+    <div id="wrapper">
+        <div id="close">
+            <i class="fa-solid fa-xmark" onclick="backFromDiv()"></i>
+        </div>
+        <div id="detail">
+            <!-- <img src="/assets/images/product/product-2.jpg" alt="">
+            <div id="detail-pro">
+                <ul>
+                    <li><h2>Toi thay hoa vang tren co xanh</h2></li>
+                    <hr>
+                    <li><h3>Thể loại:</h3></li>
+                    <hr>
+                    <li><h3>Giá:</h3></li>
+                    <hr>
+                    <li><h3>Trạng thái:</h3></li>
+                    <hr>
+                    <li>
+                        <h3>Số lượng:</h3>
+                        <input style="margin-left: 30px;" type="button" name="" id="sub" value="-" onclick="sub()">
+                        <input type="text" name="" id="quantity" value="1" onchange="check()">
+                        <input type="button" value="+" id="plus" onclick="plus()">
+                    </li>
+                    <li id="addtocart">
+                        <div><i class="fas fa-solid fa-cart-shopping" title="Giỏ hàng"></i></div>
+                    </li>
+                </ul>
+            </div> -->
+        </div>
+    </div>
+</body>
+</html>
